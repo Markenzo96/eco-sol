@@ -19,9 +19,9 @@ const HeroSection = () => {
            <HeroContent>
                <HeroH1>ECO-SOL. SOLUCIONES INTEGRALES.</HeroH1>
                <HeroP>
-                   Empresa Totalmente Dedicada A La Recoleccion De Residuos Peligrosos Y Aceite Quemado.
+                   Empresa totalmente dedicada a la recoleccion de residuos peligrosos y aceite quemado.
                </HeroP>
-               <HeroP2>Por un mundo sin Contamininacion, Por un Mundo Mejor.</HeroP2>
+               <HeroP2>Por un mundo sin contamininación, por un mundo mejor.</HeroP2>
                <HeroBtnWrapper>
                   <Button to='Contactanos' onMauseEnter={onHover} onMouseLeave={onHover}
                   primary='true'

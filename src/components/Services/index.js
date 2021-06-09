@@ -9,22 +9,22 @@ import { ServicesContainer, ServicesH1, ServicesWrapper, ServicesCard, ServicesI
 const Services= () => {
     return (
         <ServicesContainer id="services">
-            <ServicesH1>Servicios Que Ofrecemos</ServicesH1>
+            <ServicesH1>Servicios que ofrecemos</ServicesH1>
             <ServicesWrapper>
                 <ServicesCard>
                     <ServicesIcon src={Icon1}/>
-                    <ServicesH2> Maquina Limpia Partes</ServicesH2>
-                    <ServicesP>Facilita el labado de piezas mediante un desengrasante. Siendo mas comodo para el cliente y ahorrando tiempo.</ServicesP>
+                    <ServicesH2><strong>Maquina limpia partes</strong></ServicesH2>
+                    <ServicesP>Facilita el lavado de piezas mediante un desengrasante. Siendo mas comodo para el cliente y ahorrando tiempo.</ServicesP>
                 </ServicesCard>
                 <ServicesCard>
                     <ServicesIcon src={Icon2}/>
-                    <ServicesH2> Recoleccón de Aceite Quemado</ServicesH2>
+                    <ServicesH2> <strong>Recolección de aceite quemado</strong></ServicesH2>
                     <ServicesP>Se recolecta el aceite quemado,se hace limpieza del area y  se entregan manifiestos debidamente con las autorizaciones .</ServicesP>
                 </ServicesCard>
                 <ServicesCard>
                     <ServicesIcon src={Icon3}/>
-                    <ServicesH2> Recolección de Residuos Peligrosos </ServicesH2>
-                    <ServicesP>Se recolecta cualquier tipo de residuos peligros, dando un destino final a estos y ampalandolo con un maniefiesto .</ServicesP>
+                    <ServicesH2> <strong>Recolección de residuos peligrosos</strong> </ServicesH2>
+                    <ServicesP>Se recolecta cualquier tipo de residuos peligros, dando un destino final a estos y amparandolo con un manifiesto .</ServicesP>
                 </ServicesCard>
             </ServicesWrapper>
         </ServicesContainer>

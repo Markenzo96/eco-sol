@@ -3,13 +3,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Container,  FormWrap, Icon, FormContent, Form, FormLabel, input, FormButton,  Text} from './SigninElemets';
 import SelectOptions from './SelectOptions';
-import { addingDate } from "../../tools/request";
 import { Servicios } from "./Servicios";
 import validator from 'validator';
 import { useAlert } from "react-alert";
-
- 
-
+import { addingDate } from "../../tools/request";
 
 const Calendar = ({setUserData, userData}) => {
 
@@ -50,6 +47,7 @@ const SignIn = () => {
       calendario: ''
     });
     const [wasSend, setWasSend] = useState(true);
+    const [colCheck, setColCheck] = useState(false);
     const alert = useAlert();
     const today = new Date();
 
@@ -61,7 +59,10 @@ const SignIn = () => {
     }, [])
 
     const validText = (text) => {
-      const isAlpha = validator.isAlpha(text);
+      const newText = text.replace(' ', 'x');
+      const isAlpha = validator.isAlpha(newText);
+      
+      console.log(newText);
 
       if(!isAlpha){
         return '';
@@ -72,8 +73,36 @@ const SignIn = () => {
 
     const [validPhoneEmail, setValidPhoneEmail] = useState({
       cel: false,
-      email: false
+      email: false,
+      cp: false,
     })
+
+    const handleDiferentCol = (e) => {
+      const {name, value} = e.target;
+
+      if(name === 'cp1'){
+        if(value.length !== 5){
+          setValidPhoneEmail({
+            ...validPhoneEmail,
+            cp: false
+          });
+        }else{
+          setValidPhoneEmail({
+            ...validPhoneEmail,
+            cp: true
+          });
+        }
+        setUserData({
+          ...userData,
+          cp: value
+        });
+      }else{
+        setUserData({
+          ...userData,
+          col: value
+        });
+      }
+    }
 
     const saveData = (e) => {
       const {name, value} = e.target;
@@ -121,27 +150,33 @@ const SignIn = () => {
         }else{
           if(validText(userData.name) === '' || 
               validText(userData.apellidoP) === '' || 
-              validText(userData.apellidoM) === ''
+              validText(userData.apellidoM) === '' ||
+              validText(userData.col) === ''
           ){
             setWasSend(true);
-            alert.error('Algun dato de texto contiene numeros, favor de validar');
+            alert.error('Algun dato de texto contiene numeros o simbolos, favor de validar');
           }else{
             const newDate = new Date(userData.calendario);
-            
             if(today.getHours() >= 17 && today.getDate() === newDate.getDate()){
               setWasSend(true);
               alert.info('La cita no puede ser agendada por la hora, intente otro dia');
-            }else if(today.getHours() >= 17 && newDate.getDate() > today.getDate()){
-              addingDate(userData).then((isSaved)=>{
-                  setWasSend(true);
-                  if (isSaved=== 'done'){
-                    alert.show('Se ha agendado su cita con exito');
-                  }else if(isSaved === 'full'){
-                    alert.info('El dia se encuentra lleno, porfavor seleccione otro');
-                  }else {
-                    alert.error('Error agendando cita');
-                  }
-              });
+            }else if((today.getHours() <= 17 && newDate.getDate() === today.getDate()) || (newDate.getDate() > today.getDate())){
+              
+              if(userData.col === 'Colonias'){
+                setWasSend(true);
+                alert.info('Seleccione una colonia');
+              }else{
+                addingDate(userData).then((isSaved)=>{
+                    setWasSend(true);
+                    if (isSaved=== 'done'){
+                      alert.show('Se ha agendado su cita con exito');
+                    }else if(isSaved === 'full'){
+                      alert.info('El dia se encuentra lleno, porfavor seleccione otro');
+                    }else {
+                      alert.error('Error agendando cita');
+                    }
+                });
+              }
             }else{
               setWasSend(true);
               alert.info('La cita no puede ser agendada en dias anteriores, intente otro dia.');
@@ -258,7 +293,8 @@ const SignIn = () => {
                             />
                           </div>
                         </div>
-                        <div className="row">
+
+                        {colCheck || <div className="row">
                           <div className="col">
                             <FormLabel htmlFor='for' className="form-label">CP</FormLabel>
                             <input 
@@ -278,7 +314,58 @@ const SignIn = () => {
                               name="col"
                             />
                           </div>
+                        </div>}
+                        <div className="row mt-3 mb-3">
+                          <div className="col">
+                            <div className="form-check">
+                              <input 
+                                className="form-check-input" 
+                                type="checkbox"
+                                style={{
+                                  borderColor: '#F4CC23',
+                                  color: '#355A9F'
+                                }}
+                                onChange={() => {
+                                  setColCheck(!colCheck);
+                                  setValidPhoneEmail({
+                                    ...validPhoneEmail,
+                                    cp: colCheck,
+                                  })
+                                }}
+                              />
+                              <label className="form-check-label" style={{color:'white'}}>
+                                ¿No encontraste tu colonia?
+                              </label>
+                            </div>
+                          </div>
                         </div>
+                        {
+                          colCheck 
+                          &&
+                          <div className="row mb-3">
+                            <div className="col">
+                              <FormLabel htmlFor='for' className="form-label">CP</FormLabel>
+                              <input 
+                                type='number' 
+                                name="cp1"
+                                className="form-control" 
+                                required 
+                                onChange={handleDiferentCol} 
+                              />
+                              {validPhoneEmail.cp || <div className="mt-2"><span style={{color: 'yellow'}}>El código postal debe ser de 5 digitos</span></div>}
+                            </div>
+                            <div className="col">
+                              <FormLabel htmlFor='for' className="form-label">Colonia</FormLabel>
+                              <input 
+                                type='text' 
+                                name="col1"
+                                className="form-control" 
+                                required 
+                                onChange={handleDiferentCol} 
+                              />
+                            </div>
+                          </div>
+                        }
                         <div className="row">
                           <div className="col mb-4">
                             <FormLabel htmlFor='for' className="form-label">Que servicio es el que requiere</FormLabel>
@@ -305,7 +392,7 @@ const SignIn = () => {
                                 </div>
                               </div>
                             }
-                        <Text>Gracias Por Su confianza.</Text>
+                        <Text>Gracias por su confianza.</Text>
                         <Icon to="/">Regresar </Icon>
                     </Form>
                 </FormContent>
