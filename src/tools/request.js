@@ -18,7 +18,7 @@
     formdata.append('pdt', userData.servicios);
     formdata.append('st', '1');
 
-    const res = await fetch('http://ecosol.club/apis/addDateUser.php',{
+    const res = await fetch('https://ecosol.club/apis/addDateUser.php',{
         method:'POST',
         body: formdata
     });
@@ -42,7 +42,7 @@ export const getProducts = async () => {
 
   try {
     
-    const url = 'http://ecosol.club/apis/getProducts.php';
+    const url = 'https://ecosol.club/apis/getProducts.php';
     const response = await fetch(url);
 
     if(!response.ok || response.status !== 200){
