@@ -20,7 +20,7 @@ export const homeObjTwo = {
     lightBg: true,
     lightText: false,
     lightTextDesc: false,
-    topLine: 'ECO-SOL',
+    topLine: 'Eco-Sol',
     headline: 'Contamos con los Permisos',
     description: 'Contamos con los permisos Ecologicos ante las siguientes autorilades. Semarnat,Semades, registro en vehiculos de trasporte de residuos peligros . Para que usted tenga la seguridad de que somos una empresa 100% Dedicada.',
     buttonLabel: 'Pedido',

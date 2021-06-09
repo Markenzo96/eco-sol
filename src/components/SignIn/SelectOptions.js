@@ -1,67 +1,55 @@
 import React, { useState, useEffect } from "react";
 
 
-const SelectOptions = ({ cp, setUserData, userData }) => {
+const SelectOptions = ({ cp = '', setUserData, userData }) => {
   const [options, setOptions] = useState();
 
   const saveOption = (e) => {
     setUserData({
       ...userData,
-      colonia: e.target.value,
+      col: e.target.value,
     });
   };
 
   useEffect(() => {
-    fetch(`http://localhost/apis/getCol.php?cp=${cp}`)
-    // fetch("https://jsonplaceholder.typicode.com/todos/")
-      .then((response) =>
-        response
-          .json()
-          .then((successData) => {
-            setOptions(
-              successData.data.map((element, index) => {
-                return (
-                  <option value={element.colonia} key={index}>
-                    {element.colonia}
-                  </option>
-                );
+    if(cp.length === 5){
+      fetch(`http://localhost/apis/getCol.php?cp=${cp}`)
+        .then((response) =>
+          response
+            .json()
+            .then((successData) => {
+              setOptions(
+                successData.data.map((element, index) => {
+                  return (
+                    <option value={element.colonia} key={index}>
+                      {element.colonia}
+                    </option>
+                  );
+                })
+              );
+              setUserData({
+                ...userData,
+                col: successData.data[0].colonia
               })
-            );
-          })
-          .catch((error) => console.log(error))
-      )
-      .catch((error) => console.log(error));
-  }, [cp]);
-  
-   
-  
- 
-  
+            })
+            .catch((error) => console.log(error))
+        )
+        .catch((error) => console.log(error));
+    }else{
+      setOptions([<option key="selectCol" selected disabled hidden value="defCol">Colonias</option>]);
+      setUserData({
+        ...userData,
+        col: 'Colonias'
+      })
+    }
+  }, [cp, setUserData]);
 
-  return <select onChange={(e) => saveOption(e)}>{options}</select>;
- 
-
-  // const saveOption = (e) => {
-  //   setUserData({
-  //     ...userData,
-  //     colonia: e.target.value
-  //   });
-  // };
-
-  // return (
-  //   <select onChange={(e) => saveOption(e)}>
-  //     <option
-  //       value="gonzalo"
-  //     >
-  //       gonzalo
-  //     </option>
-  //     <option
-  //       value="alexa"
-  //     >
-  //       alexa
-  //     </option>
-  //   </select>
-  // );
+  return (
+    <select className="form-select"onChange={(e) => saveOption(e)}>
+      <option key="selectCol" selected disabled hidden value="defCol">Colonias</option>
+      {options}
+    </select>
+  );
 };
 
 export default SelectOptions;
