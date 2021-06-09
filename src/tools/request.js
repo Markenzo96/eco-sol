@@ -42,7 +42,7 @@ export const getProducts = async () => {
 
   try {
     
-    const url = 'http://localhost:80/apis/getProducts.php';
+    const url = 'http://ecosol.club/apis/getProducts.php';
     const response = await fetch(url);
 
     if(!response.ok || response.status !== 200){

@@ -13,7 +13,7 @@ const SelectOptions = ({ cp = '', setUserData, userData }) => {
 
   useEffect(() => {
     if(cp.length === 5){
-      fetch(`http://localhost/apis/getCol.php?cp=${cp}`)
+      fetch(`http://ecosol.club/apis/getCol.php?cp=${cp}`)
         .then((response) =>
           response
             .json()

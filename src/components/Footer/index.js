@@ -24,7 +24,7 @@ const Footer = () => {
                       <FooterLink to="/" onClick={toogleHome}>Quienes Somos?</FooterLink>
                       <FooterLink to="/" onClick={toogleHome}>Por que Nosotros?</FooterLink>
                       <FooterLink to="/" onClick={toogleHome}>Productos</FooterLink>
-                      <FooterLink to="/signin">Solisitar Pedido</FooterLink>
+                      <FooterLink to="/signin">Solicitar Pedido</FooterLink>
                 </FooterLinkItems>  
                 <FooterLinkItems>
                    <FooterLinkTitle>Contactanos</FooterLinkTitle> 
@@ -51,7 +51,7 @@ const Footer = () => {
                 <SocialLogo to='/' onClick={toogleHome}>
                   Eco-sol
                 </SocialLogo>
-                <WebsiteRights> Eco-Sol: Soluciones Integrales © {new Date().getFullYear()} Todos los Derechos Recervados. </WebsiteRights>
+                <WebsiteRights> Eco-Sol: Soluciones Integrales © {new Date().getFullYear()} Todos los Derechos Reservados. </WebsiteRights>
                 <SocialIcons>
                   <SocialIconLink href="//www.facebook.com" target="_blank" aria-label="Facebook">
                     <FaFacebook />
