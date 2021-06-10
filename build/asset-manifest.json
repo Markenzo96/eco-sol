@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.a514991a.chunk.css",
-    "main.js": "/static/js/main.8c652241.chunk.js",
-    "main.js.map": "/static/js/main.8c652241.chunk.js.map",
+    "main.js": "/static/js/main.e89ff80d.chunk.js",
+    "main.js.map": "/static/js/main.e89ff80d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.72e4e45a.js",
     "runtime-main.js.map": "/static/js/runtime-main.72e4e45a.js.map",
     "static/css/2.0cfad52a.chunk.css": "/static/css/2.0cfad52a.chunk.css",
-    "static/js/2.dc905de6.chunk.js": "/static/js/2.dc905de6.chunk.js",
-    "static/js/2.dc905de6.chunk.js.map": "/static/js/2.dc905de6.chunk.js.map",
+    "static/js/2.82db8412.chunk.js": "/static/js/2.82db8412.chunk.js",
+    "static/js/2.82db8412.chunk.js.map": "/static/js/2.82db8412.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.0cfad52a.chunk.css.map": "/static/css/2.0cfad52a.chunk.css.map",
     "static/css/main.a514991a.chunk.css.map": "/static/css/main.a514991a.chunk.css.map",
-    "static/js/2.dc905de6.chunk.js.LICENSE.txt": "/static/js/2.dc905de6.chunk.js.LICENSE.txt",
+    "static/js/2.82db8412.chunk.js.LICENSE.txt": "/static/js/2.82db8412.chunk.js.LICENSE.txt",
     "static/media/Pexels Videos 2480792.e51b355a.mp4": "/static/media/Pexels Videos 2480792.e51b355a.mp4",
     "static/media/camion.ccbf89b5.jpg": "/static/media/camion.ccbf89b5.jpg",
     "static/media/tanque-limpiapiezas-75-litros-vista1.0ecdd241.png": "/static/media/tanque-limpiapiezas-75-litros-vista1.0ecdd241.png",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.72e4e45a.js",
     "static/css/2.0cfad52a.chunk.css",
-    "static/js/2.dc905de6.chunk.js",
+    "static/js/2.82db8412.chunk.js",
     "static/css/main.a514991a.chunk.css",
-    "static/js/main.8c652241.chunk.js"
+    "static/js/main.e89ff80d.chunk.js"
   ]
 }

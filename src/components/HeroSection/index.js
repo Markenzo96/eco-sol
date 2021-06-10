@@ -17,9 +17,9 @@ const HeroSection = () => {
                <VideoBg autoPlay loop muted src={Video} type='video/ mp4' />
            </HeroBg> 
            <HeroContent>
-               <HeroH1>ECO-SOL. SOLUCIONES INTEGRALES.</HeroH1>
+               <HeroH1>ECO-SOL SOLUCIONES INTEGRALES.</HeroH1>
                <HeroP>
-                   Empresa totalmente dedicada a la recoleccion de residuos peligrosos y aceite quemado.
+                   Empresa totalmente dedicada a la recolección de residuos peligrosos y aceite quemado.
                </HeroP>
                <HeroP2>Por un mundo sin contamininación, por un mundo mejor.</HeroP2>
                <HeroBtnWrapper>
@@ -32,7 +32,7 @@ const HeroSection = () => {
                   exact='true'
                   offset={-80}
                   >
-                   Contactanos {hover ? <ArrowForward /> : <ArrowRight />}   
+                   Contáctanos {hover ? <ArrowForward /> : <ArrowRight />}   
                   </Button> 
                </HeroBtnWrapper>
            </HeroContent>

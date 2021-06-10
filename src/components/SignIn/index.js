@@ -143,10 +143,10 @@ const SignIn = () => {
     const handleSubmit = e => {
       e.preventDefault();
       setWasSend(false);
-      if(window.confirm('Estas apunto de agregar una cita, ¿Desea continuar?')){
+      if(window.confirm('Estás apunto de agregar una cita. ¿Deseas continuar?')){
         if(!validPhoneEmail.cel || !validPhoneEmail.email){
           setWasSend(true);
-          alert.error('Error con el celular/correo, favor de validar');
+          alert.error('Error con el celular/correo. Favor de validar');
         }else{
           if(validText(userData.name) === '' || 
               validText(userData.apellidoP) === '' || 
@@ -154,12 +154,12 @@ const SignIn = () => {
               validText(userData.col) === ''
           ){
             setWasSend(true);
-            alert.error('Algun dato de texto contiene numeros o simbolos, favor de validar');
+            alert.error('Algún dato de texto contiene números o símbolos. Favor de validar');
           }else{
             const newDate = new Date(userData.calendario);
             if(today.getHours() >= 17 && today.getDate() === newDate.getDate()){
               setWasSend(true);
-              alert.info('La cita no puede ser agendada por la hora, intente otro dia');
+              alert.info('La cita no puede ser agendada por la hora, intente otro día');
             }else if((today.getHours() <= 17 && newDate.getDate() === today.getDate()) || (newDate.getDate() > today.getDate())){
               
               if(userData.col === 'Colonias'){
@@ -169,9 +169,9 @@ const SignIn = () => {
                 addingDate(userData).then((isSaved)=>{
                     setWasSend(true);
                     if (isSaved=== 'done'){
-                      alert.show('Se ha agendado su cita con exito');
+                      alert.show('Se ha agendado su cita con éxito.');
                     }else if(isSaved === 'full'){
-                      alert.info('El dia se encuentra lleno, porfavor seleccione otro');
+                      alert.info('El día se encuentra lleno. Porfavor seleccione otro');
                     }else {
                       alert.error('Error agendando cita');
                     }
@@ -179,7 +179,7 @@ const SignIn = () => {
               }
             }else{
               setWasSend(true);
-              alert.info('La cita no puede ser agendada en dias anteriores, intente otro dia.');
+              alert.info('La cita no puede ser agendada en días anteriores, intente otro día.');
             }
           }
         }
@@ -237,7 +237,7 @@ const SignIn = () => {
                         </div>
                         <div className="row">
                           <div className="col">
-                            <FormLabel htmlFor='for' className="form-label">Correo Electronico</FormLabel>
+                            <FormLabel htmlFor='for' className="form-label">Correo Electrónico</FormLabel>
                             <input 
                               type='email' 
                               className="form-control"
@@ -245,10 +245,10 @@ const SignIn = () => {
                               name="email" 
                               onChange={saveData}
                             />
-                            { validPhoneEmail.email || <div className="mt-2"><span style={{color: 'yellow'}}>No es un email valido</span></div>}
+                            { validPhoneEmail.email || <div className="mt-2"><span style={{color: 'yellow'}}>No es un correo valido</span></div>}
                           </div>
                           <div className="col">
-                            <FormLabel htmlFor='for' className="form-label">Telefono</FormLabel>
+                            <FormLabel htmlFor='for' className="form-label">Teléfono</FormLabel>
                             <input 
                               type='number'
                               className="form-control" 
@@ -257,7 +257,7 @@ const SignIn = () => {
                               autoComplete="off"
                               onChange={saveData}
                             />
-                            {validPhoneEmail.cel || <div className="mt-2"><span style={{color: 'yellow'}}>El telefono no cuenta con 10 numeros</span></div>}
+                            {validPhoneEmail.cel || <div className="mt-2"><span style={{color: 'yellow'}}>El teléfono no cuenta con 10 números</span></div>}
                           </div>
                         </div>
                         <hr style={{color: 'white'}}/>
@@ -274,7 +274,7 @@ const SignIn = () => {
                             />
                           </div>
                           <div className="col">
-                            <FormLabel htmlFor='for' className="form-label">Numero Exterior </FormLabel>
+                            <FormLabel htmlFor='for' className="form-label">Número Exterior </FormLabel>
                             <input 
                               type='number'
                               className="form-control" 
@@ -284,7 +284,7 @@ const SignIn = () => {
                             />
                           </div>
                           <div className="col">
-                            <FormLabel htmlFor='for' className="form-label">Numero Interior</FormLabel>
+                            <FormLabel htmlFor='for' className="form-label">Número Interior</FormLabel>
                             <input 
                               type='number'
                               className="form-control"
@@ -352,7 +352,7 @@ const SignIn = () => {
                                 required 
                                 onChange={handleDiferentCol} 
                               />
-                              {validPhoneEmail.cp || <div className="mt-2"><span style={{color: 'yellow'}}>El código postal debe ser de 5 digitos</span></div>}
+                              {validPhoneEmail.cp || <div className="mt-2"><span style={{color: 'yellow'}}>El código postal debe ser de 5 dígitos</span></div>}
                             </div>
                             <div className="col">
                               <FormLabel htmlFor='for' className="form-label">Colonia</FormLabel>
@@ -368,7 +368,7 @@ const SignIn = () => {
                         }
                         <div className="row">
                           <div className="col mb-4">
-                            <FormLabel htmlFor='for' className="form-label">Que servicio es el que requiere</FormLabel>
+                            <FormLabel htmlFor='for' className="form-label">¿Qué servicio es el que requiere?</FormLabel>
                             <select className="form-select" name="servicios" onChange={saveData}>
                               <Servicios />
                             </select>
@@ -376,7 +376,7 @@ const SignIn = () => {
                         </div>
                         <div className="row">
                           <div className="col">
-                            <FormLabel htmlFor='for' className="me-2">Que dia quiere su cita? </FormLabel>
+                            <FormLabel htmlFor='for' className="me-2">¿Qué día requiere su cita? </FormLabel>
                             <Calendar name="cita" setUserData={setUserData} userData={userData} ></Calendar>
                           </div>
                         </div>

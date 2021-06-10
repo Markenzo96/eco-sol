@@ -13,18 +13,18 @@ const Services= () => {
             <ServicesWrapper>
                 <ServicesCard>
                     <ServicesIcon src={Icon1}/>
-                    <ServicesH2><strong>Maquina limpia partes</strong></ServicesH2>
-                    <ServicesP>Facilita el lavado de piezas mediante un desengrasante. Siendo mas comodo para el cliente y ahorrando tiempo.</ServicesP>
+                    <ServicesH2><strong>Máquina limpia partes</strong></ServicesH2>
+                    <ServicesP>Facilita el lavado de piezas mediante un desengrasante. Siendo más cómodo para el cliente y ahorrando tiempo.</ServicesP>
                 </ServicesCard>
                 <ServicesCard>
                     <ServicesIcon src={Icon2}/>
-                    <ServicesH2> <strong>Recolección de aceite quemado</strong></ServicesH2>
-                    <ServicesP>Se recolecta el aceite quemado,se hace limpieza del area y  se entregan manifiestos debidamente con las autorizaciones .</ServicesP>
+                    <ServicesH2 className="text-center mt-2"><strong>Recolección de aceite quemado</strong></ServicesH2>
+                    <ServicesP>Se recolecta el aceite quemado, se hace limpieza del área y se entregan manifiestos con las autoridades.</ServicesP>
                 </ServicesCard>
                 <ServicesCard>
                     <ServicesIcon src={Icon3}/>
-                    <ServicesH2> <strong>Recolección de residuos peligrosos</strong> </ServicesH2>
-                    <ServicesP>Se recolecta cualquier tipo de residuos peligros, dando un destino final a estos y amparandolo con un manifiesto .</ServicesP>
+                    <ServicesH2 className="text-center mt-2"><strong>Recolección de residuos peligrosos</strong></ServicesH2>
+                    <ServicesP>Se recolecta cualquier tipo de residuo peligroso, dando un destino final a este y amparandolo con un manifiesto.</ServicesP>
                 </ServicesCard>
             </ServicesWrapper>
         </ServicesContainer>

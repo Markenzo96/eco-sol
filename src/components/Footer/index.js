@@ -21,13 +21,13 @@ const Footer = () => {
                 <FooterLinkItems>
                    <FooterLinkTitle>Sobre Nosotros</FooterLinkTitle> 
                       <FooterLink to="/" onClick={toogleHome}>Empresa</FooterLink>
-                      <FooterLink to="/" onClick={toogleHome}>¿Quienes somos?</FooterLink>
-                      <FooterLink to="/" onClick={toogleHome}>¿Por que nosotros?</FooterLink>
+                      <FooterLink to="/" onClick={toogleHome}>¿Quiénes somos?</FooterLink>
+                      <FooterLink to="/" onClick={toogleHome}>¿Por qué nosotros?</FooterLink>
                       <FooterLink to="/" onClick={toogleHome}>Productos</FooterLink>
                       <FooterLink to="/signin">Solicitar pedido</FooterLink>
                 </FooterLinkItems>  
                 <FooterLinkItems>
-                   <FooterLinkTitle>Contactanos</FooterLinkTitle> 
+                   <FooterLinkTitle>Contáctanos</FooterLinkTitle> 
                       <FooterLink to="/">Oficina</FooterLink>
                       <FooterLink to="/">RH: 33-31-52-88-04.</FooterLink>
                       <FooterLink to="/">Gerente: 33-17-70-74-33.</FooterLink>
